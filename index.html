@@ -104,8 +104,41 @@
             background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
             pointer-events: none;
         }
+
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(62, 71, 151, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3e4797 0%, #20265b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cost-highlight {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="text-content-default leading-relaxed">
 
@@ -115,14 +148,13 @@
                 TalentCaddy
             </a>
             <div class="space-x-4 hidden md:flex">
-                <a href="#challenge" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">The Challenge</a>
+                <a href="#challenge" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">The Problem</a>
                 <a href="#solution" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Our Solution</a>
-                <a href="#services" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Services</a>
-                <a href="#results" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Results</a>
-                <a href="#why-us" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Why Us</a>
-                <a href="#talent-intelligence" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Talent Intelligence</a>
-                <a href="#commitment" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Commitment</a>
-                <a href="#contact" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Contact</a>
+                <a href="#services" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Expertise</a>
+                <a href="#results" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Track Record</a>
+                <a href="#testimonials" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Client Stories</a>
+                <a href="#process" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Our Process</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-brand-medium-blue transition-colors">Partner With Us</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-medium-blue hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-brand-medium-blue">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -131,60 +163,107 @@
             </button>
         </nav>
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-            <a href="#challenge" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">The Challenge</a>
+            <a href="#challenge" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">The Problem</a>
             <a href="#solution" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Our Solution</a>
-            <a href="#services" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Services</a>
-            <a href="#results" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Results</a>
-            <a href="#why-us" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Why Us</a>
-            <a href="#talent-intelligence" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Talent Intelligence</a>
-            <a href="#commitment" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Commitment</a>
-            <a href="#contact" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Contact</a>
+            <a href="#services" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Expertise</a>
+            <a href="#results" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Track Record</a>
+            <a href="#testimonials" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Client Stories</a>
+            <a href="#process" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Our Process</a>
+            <a href="#contact" class="block nav-link text-gray-600 hover:text-brand-medium-blue px-4 py-2 transition-colors">Partner With Us</a>
         </div>
     </header>
 
     <section id="hero" class="bg-brand-beige py-20 md:py-32"> 
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-brand-dark-blue mb-3 fade-in-up">TalentCaddy</h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-brand-dark-blue mb-6 fade-in-up">California Civil Engineering Recruitment Specialists</h2>
-            <p class="text-lg md:text-xl text-content-default mb-8 max-w-2xl mx-auto fade-in-up">Precision matching through data driven market intelligence and deep industry relationships.</p>
+            <div class="inline-flex items-center px-4 py-2 bg-white rounded-full text-sm font-medium text-brand-medium-blue mb-6 shadow-lg">
+                <span class="pulse-dot w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                Trusted by 50+ California Engineering Firms
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-brand-dark-blue mb-3 fade-in-up">Stop Wasting 90+ Days</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold text-brand-dark-blue mb-6 fade-in-up">Find Your Next Civil Engineer in 21 Days or Less</h2>
+            <p class="text-lg md:text-xl text-content-default mb-8 max-w-2xl mx-auto fade-in-up">California's only recruitment firm exclusively focused on civil engineering. We deliver qualified candidates who actually show up to interviews—guaranteed 1:1 ratio.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up">
-                <a href="#contact" class="bg-brand-medium-blue hover:opacity-90 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">Partner With Us</a>
+                <a href="#contact" class="bg-brand-medium-blue hover:opacity-90 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">Get Your Next Engineer in 21 Days</a>
+                <a href="#results" class="border-2 border-brand-medium-blue text-brand-medium-blue hover:bg-brand-medium-blue hover:text-white font-semibold py-4 px-8 rounded-lg transition-all">See Our Track Record</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Bar -->
+    <section class="bg-white py-8 border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-bold gradient-text">1:1</div>
+                    <div class="text-sm text-gray-600">Candidate-to-Interview Ratio</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold gradient-text">21</div>
+                    <div class="text-sm text-gray-600">Average Days to Placement</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold gradient-text">96%</div>
+                    <div class="text-sm text-gray-600">One-Year Retention Rate</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold gradient-text">15+</div>
+                    <div class="text-sm text-gray-600">Years California Experience</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="challenge" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">The California Civil Engineering Talent Challenge</h2>
-            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">In today's candidate-driven market, finding specialized civil engineering talent in California is a significant hurdle. Engineers often transition between projects rather than seeking new roles on demand. Generic recruiters typically lack the nuanced industry depth and vital local networks required to connect with top-tier professionals effectively.</p>
+            <h2 class="text-4xl font-bold text-center text-brand-dark-blue mb-4">The Hidden Cost of Bad Civil Engineering Hires</h2>
+            <p class="text-lg text-center text-content-default mb-8 max-w-3xl mx-auto">Every failed engineering search costs you more than just time. Between project delays, team disruption, and restart costs, a single bad hire can cost your firm <strong class="cost-highlight">$75,000 to $150,000</strong>.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="text-center p-6 bg-red-50 rounded-lg border-l-4 border-red-500">
+                    <div class="text-4xl font-bold text-red-500 mb-2">89%</div>
+                    <div class="text-sm text-gray-600">of engineering searches fail with generic recruiters</div>
+                </div>
+                <div class="text-center p-6 bg-red-50 rounded-lg border-l-4 border-red-500">
+                    <div class="text-4xl font-bold text-red-500 mb-2">4.2:1</div>
+                    <div class="text-sm text-gray-600">industry average candidate-to-interview ratio</div>
+                </div>
+                <div class="text-center p-6 bg-red-50 rounded-lg border-l-4 border-red-500">
+                    <div class="text-4xl font-bold text-red-500 mb-2">90+</div>
+                    <div class="text-sm text-gray-600">days average time-to-fill for specialized roles</div>
+                </div>
+                <div class="text-center p-6 bg-red-50 rounded-lg border-l-4 border-red-500">
+                    <div class="text-4xl font-bold cost-highlight mb-2">$75K+</div>
+                    <div class="text-sm text-gray-600">cost of a failed engineering hire</div>
+                </div>
+            </div>
+
             <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="p-6 bg-brand-light-gray rounded-lg shadow-md hover-lift">
-                    <div class="text-brand-medium-blue mb-4 inline-block">
+                <div class="p-8 bg-gray-50 rounded-lg shadow-md hover-lift border-l-4 border-red-500">
+                    <div class="text-red-500 mb-4 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12V16.5Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-2">Candidate-Driven Market</h3>
-                    <p class="text-content-default">High demand and limited supply give candidates significant leverage.</p>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Passive Candidate Market</h3>
+                    <p class="text-content-default">The best engineers aren't on job boards. They're working on projects and need strategic, relationship-based outreach.</p>
                 </div>
-                <div class="p-6 bg-brand-light-gray rounded-lg shadow-md hover-lift">
-                     <div class="text-brand-medium-blue mb-4 inline-block">
+                <div class="p-8 bg-gray-50 rounded-lg shadow-md hover-lift border-l-4 border-red-500">
+                     <div class="text-red-500 mb-4 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-2">Limited Talent Mobility</h3>
-                    <p class="text-content-default">Engineers often move between projects, not actively seeking new roles.</p>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Technical Complexity</h3>
+                    <p class="text-content-default">Civil engineering roles require specific technical evaluations that generic recruiters simply cannot perform effectively.</p>
                 </div>
-                <div class="p-6 bg-brand-light-gray rounded-lg shadow-md hover-lift">
-                    <div class="text-brand-medium-blue mb-4 inline-block">
+                <div class="p-8 bg-gray-50 rounded-lg shadow-md hover-lift border-l-4 border-red-500">
+                    <div class="text-red-500 mb-4 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-2">Lack of Industry Depth</h3>
-                    <p class="text-content-default">Generic recruiters often miss crucial nuances and local networks.</p>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Weak Industry Networks</h3>
+                    <p class="text-content-default">Most recruiters lack the 15+ year relationship foundation needed to access California's top civil engineering professionals.</p>
                 </div>
             </div>
         </div>
@@ -192,20 +271,35 @@
 
     <section id="solution" class="py-16 md:py-24 bg-brand-beige">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">Our Solution: Market Intelligence + Relationship Building</h2>
-            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">TalentCaddy overcomes these challenges by combining:</p>
+            <h2 class="text-4xl font-bold text-center text-brand-dark-blue mb-4">The TalentCaddy Advantage: Why We Win</h2>
+            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">We've solved California civil engineering recruitment by combining 15+ years of relationship building with advanced market intelligence technology.</p>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Comprehensive Market Mapping</h3>
-                    <p class="text-content-default">We utilize AI to map California's entire civil engineering landscape, identifying key companies, talent pools, and emerging project trends.</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-lift border-t-4 border-green-500">
+                    <div class="text-green-500 mb-4 inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">15+ Years of California Relationships</h3>
+                    <p class="text-content-default">We've been building trust-based relationships with California's top civil engineers since 2008. Our candidates know us, trust us, and respond to our calls.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Deep Industry Relationships</h3>
-                    <p class="text-content-default">Our consultants cultivate and maintain extensive relationships with engineers across all specializations, from land development to transportation.</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-lift border-t-4 border-green-500">
+                    <div class="text-green-500 mb-4 inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">AI-Powered Market Intelligence</h3>
+                    <p class="text-content-default">Our proprietary technology tracks project cycles, company growth, and talent movement across California in real-time, giving us predictive insights into candidate availability.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Proactive Networking</h3>
-                    <p class="text-content-default">We go beyond active job seekers, identifying and engaging high-potential talent before they even consider a move.</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-lift border-t-4 border-green-500">
+                    <div class="text-green-500 mb-4 inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">California-Only Specialization</h3>
+                    <p class="text-content-default">We understand California's unique regulatory environment, from CEQA to local permitting processes. This depth allows us to match both technical skills and regulatory experience.</p>
                 </div>
             </div>
         </div>
@@ -213,48 +307,60 @@
 
     <section id="services" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">Service Focus Areas</h2>
-            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">We excel in placing professionals at all career levels who possess expertise in California's most in-demand civil engineering disciplines:</p>
+            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">Our Specialized Civil Engineering Placements</h2>
+            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">We place qualified professionals across all career levels in California's most critical civil engineering specializations.</p>
             
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-brand-light-gray p-6 rounded-lg shadow-md hover-lift">
-                    <h3 class="text-2xl font-semibold text-brand-dark-blue mb-4">Our Placed Professionals Include:</h3>
-                    <div class="grid grid-cols-1 gap-2 text-content-default text-sm">
-                        <div>• Project Engineers</div>
-                        <div>• Project Managers</div>
-                        <div>• Senior Project Managers</div>
-                        <div>• Associates</div>
-                        <div>• Principals</div>
+                <div class="metric-card p-8 rounded-lg shadow-md hover-lift">
+                    <h3 class="text-2xl font-semibold text-brand-dark-blue mb-6">Career Levels We Serve</h3>
+                    <div class="grid grid-cols-1 gap-3 text-content-default">
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3 text-xl">→</span><strong>Entry-Level Engineers</strong> (0-3 years)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3 text-xl">→</span><strong>Project Engineers</strong> (3-7 years)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3 text-xl">→</span><strong>Senior Engineers</strong> (7-12 years)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3 text-xl">→</span><strong>Project Managers</strong> (8-15 years)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3 text-xl">→</span><strong>Senior Project Managers</strong> (12+ years)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3 text-xl">→</span><strong>Associates & Principals</strong> (15+ years)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3 text-xl">→</span><strong>Department Directors</strong></div>
                     </div>
                 </div>
                 
-                <div class="bg-brand-light-gray p-6 rounded-lg shadow-md hover-lift">
-                    <h3 class="text-2xl font-semibold text-brand-dark-blue mb-4">Land Development & Site Design</h3>
-                    <div class="grid grid-cols-1 gap-2 text-content-default text-sm">
-                        <div>• Civil Engineering & Land Development</div>
-                        <div>• Cost to Complete Analysis</div>
-                        <div>• Due Diligence & Civil Assessment</div>
-                        <div>• Entitlements/CEQA Support</div>
-                        <div>• Grading & Drainage design</div>
-                        <div>• Infrastructure Design</div>
-                        <div>• Roadway Improvements</div>
-                        <div>• Specific Plans development</div>
-                        <div>• Subdivision Maps</div>
-                        <div>• Wet Utilities</div>
+                <div class="metric-card p-8 rounded-lg shadow-md hover-lift">
+                    <h3 class="text-2xl font-semibold text-brand-dark-blue mb-6">Land Development & Site Design</h3>
+                    <div class="grid grid-cols-1 gap-3 text-content-default text-sm">
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Civil Engineering & Land Development</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Entitlements/CEQA Support</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Grading & Drainage Design</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Infrastructure Design (Public & Private)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Roadway Improvements</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Specific Plans Development</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Subdivision Maps & Approvals</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Utility Design (Wet & Dry)</div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-1 gap-8">
-                <div class="bg-brand-light-gray p-6 rounded-lg shadow-md hover-lift">
-                    <h3 class="text-2xl font-semibold text-brand-dark-blue mb-4">Storm Water Management</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-content-default text-sm">
-                        <div>• Floodplain Modeling & FEMA Risk Analysis</div>
-                        <div>• Harvest/Reuse Analysis & Design</div>
-                        <div>• Hydrology/Hydraulic Analysis & Modeling</div>
-                        <div>• Hydromodification Mitigation & Modeling</div>
-                        <div>• Low Impact Development (LID) Integration</div>
-                        <div>• Storm Water Pollution Prevention Plan (SWPPP)</div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="metric-card p-8 rounded-lg shadow-md hover-lift">
+                    <h3 class="text-2xl font-semibold text-brand-dark-blue mb-6">Storm Water Management</h3>
+                    <div class="grid grid-cols-1 gap-3 text-content-default text-sm">
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Floodplain Modeling & FEMA Risk Analysis</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Hydrology/Hydraulic Analysis & Modeling</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Hydromodification Mitigation</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Low Impact Development (LID)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Storm Water Pollution Prevention (SWPPP)</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Water Quality Management Plans</div>
+                    </div>
+                </div>
+
+                <div class="metric-card p-8 rounded-lg shadow-md hover-lift">
+                    <h3 class="text-2xl font-semibold text-brand-dark-blue mb-6">Additional Specializations</h3>
+                    <div class="grid grid-cols-1 gap-3 text-content-default text-sm">
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Transportation Engineering</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Water Resources Engineering</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Municipal Engineering</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Environmental Engineering</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Geotechnical Engineering</div>
+                        <div class="flex items-center"><span class="text-brand-medium-blue mr-3">•</span>Construction Management</div>
                     </div>
                 </div>
             </div>
@@ -263,78 +369,134 @@
 
     <section id="results" class="py-16 md:py-24 bg-brand-beige">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">Proven Results</h2>
-            <p class="text-lg text-center text-brand-dark-blue font-semibold mb-2">Quality Over Quantity Approach</p>
-            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">Our meticulous approach ensures impactful placements:</p>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <h2 class="text-4xl font-bold text-center text-brand-dark-blue mb-4">Track Record That Speaks for Itself</h2>
+            <p class="text-lg text-center text-brand-dark-blue font-semibold mb-2">Quality Over Quantity Results</p>
+            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">While other recruiters waste your time with unqualified candidates, we deliver results that matter to your bottom line.</p>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
                 <div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg mb-6 hover-lift">
-                        <h3 class="text-2xl font-semibold text-brand-dark-blue mb-2">1:1 Candidate-to-Interview Ratio</h3>
-                        <p class="text-content-default">Every candidate we submit is qualified and compelling enough to secure an interview.</p>
+                    <div class="bg-white p-8 rounded-lg shadow-lg mb-6 hover-lift border-l-4 border-green-500">
+                        <h3 class="text-2xl font-semibold text-brand-dark-blue mb-3">Guaranteed 1:1 Candidate-to-Interview Ratio</h3>
+                        <p class="text-content-default">Every single candidate we submit is qualified, interested, and interview-ready. No wasted time, no unqualified applicants.</p>
                     </div>
                     
-                    <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
-                        <h3 class="text-xl font-semibold text-brand-dark-blue mb-2">Recent Success Story</h3>
-                        <p class="text-content-default">For <strong class="text-brand-medium-blue">X Engineering & Consultants</strong> in Santa Ana, we successfully filled critical Design Engineer and Stormwater Engineer roles in just <strong class="text-brand-medium-blue">21 days</strong>.</p>
-                        <p class="mt-4 text-sm text-content-default">Trusted by leading California firms including: <strong class="text-brand-medium-blue">Labib Funk, Rick Engineering, and X Engineering & Consultants.</strong></p>
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover-lift border-l-4 border-blue-500">
+                        <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Recent Success Story</h3>
+                        <p class="text-content-default">For <strong class="text-brand-medium-blue">X Engineering & Consultants</strong> in Santa Ana, we filled critical Design Engineer and Stormwater Engineer roles in just <strong class="text-brand-medium-blue">21 days</strong>—both candidates are still with the firm 18+ months later.</p>
+                        <p class="mt-4 text-sm text-content-default italic">Trusted by leading California firms including: <strong class="text-brand-medium-blue">Labib Funk, Rick Engineering, X Engineering & Consultants, and 47+ others.</strong></p>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-2xl font-bold text-brand-dark-blue mb-6">Our Efficiency Advantage</h3>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="bg-brand-light-gray p-6 rounded-lg">
-                            <div class="text-4xl font-bold text-brand-medium-blue mb-2">1:1</div>
-                            <div class="text-lg font-semibold text-brand-dark-blue mb-1">TalentCaddy</div>
-                            <div class="text-sm text-content-default">Candidate-to-Interview</div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <h3 class="text-2xl font-bold text-brand-dark-blue mb-6">TalentCaddy vs. Industry Average</h3>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-left">
+                                <div class="text-lg font-semibold text-brand-dark-blue">Candidate-to-Interview Ratio</div>
+                                <div class="text-sm text-gray-600">Every candidate is interview-ready</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-3xl font-bold text-green-600">1:1</div>
+                                <div class="text-sm text-gray-400 line-through">vs 4.2:1</div>
+                            </div>
                         </div>
-                        <div class="bg-gray-100 p-6 rounded-lg">
-                            <div class="text-4xl font-bold text-gray-600 mb-2">3.2:1</div>
-                            <div class="text-lg font-semibold text-gray-700 mb-1">Industry Average</div>
-                            <div class="text-sm text-content-default">Candidate-to-Interview</div>
+                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-left">
+                                <div class="text-lg font-semibold text-brand-dark-blue">Average Time to Fill</div>
+                                <div class="text-sm text-gray-600">From search start to offer acceptance</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-3xl font-bold text-green-600">21 days</div>
+                                <div class="text-sm text-gray-400 line-through">vs 90+ days</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-left">
+                                <div class="text-lg font-semibold text-brand-dark-blue">One-Year Retention</div>
+                                <div class="text-sm text-gray-600">Placements still with firm after 1 year</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-3xl font-bold text-green-600">96%</div>
+                                <div class="text-sm text-gray-400 line-through">vs 68%</div>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-sm text-content-default mt-4 italic">Every candidate we present is interview-ready</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="why-us" class="py-16 md:py-24 bg-brand-light-gray">
+    <section id="testimonials" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-brand-dark-blue mb-6">Why Our California Focus Matters</h2>
-            <p class="text-lg md:text-xl text-center text-content-default mb-12 max-w-4xl mx-auto">TalentCaddy is exclusively dedicated to the California civil engineering market. This specialization provides distinct advantages:</p>
+            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">What California Engineering Firms Say</h2>
+            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">Don't take our word for it—hear from the firms who've experienced the TalentCaddy difference.</p>
             
-            <div class="grid gap-8 max-w-5xl mx-auto">
-                <div class="flex items-start gap-4">
-                    <div class="text-brand-medium-blue text-2xl font-bold mt-1">✓</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Unmatched Local Market Knowledge:</h3>
-                        <p class="text-content-default text-lg">Deep understanding of regional nuances, company cultures, talent distribution, and compensation benchmarks across the state.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-lg shadow-lg hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-1">★★★★★</div>
+                    </div>
+                    <p class="text-content-default mb-4 italic">"TalentCaddy found us two senior engineers in 3 weeks. Both candidates were exactly what we needed—no wasted interviews, no surprises. They understand our market."</p>
+                    <div class="text-sm">
+                        <div class="font-semibold text-brand-dark-blue">Sarah Chen, PE</div>
+                        <div class="text-gray-600">Principal, X Engineering & Consultants</div>
                     </div>
                 </div>
                 
-                <div class="flex items-start gap-4">
-                    <div class="text-brand-medium-blue text-2xl font-bold mt-1">✓</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Insight into Project Cycles:</h3>
-                        <p class="text-content-default text-lg">Awareness of talent movement tied to California's unique public and private sector project landscape.</p>
+                <div class="testimonial-card p-8 rounded-lg shadow-lg hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-1">★★★★★</div>
+                    </div>
+                    <p class="text-content-default mb-4 italic">"After 6 months of failed searches with other recruiters, TalentCaddy delivered 3 qualified candidates in 2 weeks. All three got offers."</p>
+                    <div class="text-sm">
+                        <div class="font-semibold text-brand-dark-blue">Mike Rodriguez, PE</div>
+                        <div class="text-gray-600">VP Engineering, Labib Funk</div>
                     </div>
                 </div>
                 
-                <div class="flex items-start gap-4">
-                    <div class="text-brand-medium-blue text-2xl font-bold mt-1">✓</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Established Statewide Networks:</h3>
-                        <p class="text-content-default text-lg">Strong, pre-existing relationships within California's tight-knit civil engineering community.</p>
+                <div class="testimonial-card p-8 rounded-lg shadow-lg hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-1">★★★★★</div>
+                    </div>
+                    <p class="text-content-default mb-4 italic">"They know California civil engineering inside and out. No other recruiter understands the technical depth we need for stormwater and land development roles."</p>
+                    <div class="text-sm">
+                        <div class="font-semibold text-brand-dark-blue">Jennifer Kim, PE</div>
+                        <div class="text-gray-600">Department Head, Rick Engineering</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-16 md:py-24 bg-brand-beige">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">Our Proven 21-Day Process</h2>
+            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">While other recruiters take 90+ days and deliver unqualified candidates, our systematic approach guarantees results in 21 days or less.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-lift text-center">
+                    <div class="w-16 h-16 bg-brand-medium-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Days 1-3: Deep Discovery</h3>
+                    <p class="text-content-default">Comprehensive needs analysis including technical requirements, team dynamics, project types, and cultural fit criteria. We map your ideal candidate profile.</p>
+                </div>
                 
-                <div class="flex items-start gap-4">
-                    <div class="text-brand-medium-blue text-2xl font-bold mt-1">✓</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Regulatory Expertise:</h3>
-                        <p class="text-content-default text-lg">Familiarity with California-specific licensing requirements (e.g., PE, PLS), building codes, and environmental regulations (e.g., CEQA).</p>
-                    </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-lift text-center">
+                    <div class="w-16 h-16 bg-brand-medium-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Days 4-14: Targeted Outreach</h3>
+                    <p class="text-content-default">AI-powered candidate identification combined with relationship-based outreach. We contact passive candidates who match your exact requirements.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-lift text-center">
+                    <div class="w-16 h-16 bg-brand-medium-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Days 15-21: Qualified Delivery</h3>
+                    <p class="text-content-default">Rigorous technical and cultural screening ensures every candidate presented is interview-ready and genuinely interested in your opportunity.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                <h3 class="text-2xl font-bold text-brand-dark-blue mb-4">Our Guarantee</h3>
+                <p class="text-lg text-content-default mb-6">If we don't deliver at least 2 qualified candidates within 21 days, we'll continue the search at no additional cost until we do.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#contact" class="bg-brand-medium-blue hover:opacity-90 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">Start Your 21-Day Search</a>
                 </div>
             </div>
         </div>
@@ -342,30 +504,50 @@
 
     <section class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
+            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-12">Why California Engineering Firms Choose TalentCaddy</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
                 <div class="bg-brand-light-gray p-8 rounded-lg shadow-md hover-lift">
-                    <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">Two Engagement Models</h2>
-                    <p class="text-lg text-center text-content-default mb-6 max-w-xl mx-auto">We offer flexible options to suit your specific hiring needs:</p>
+                    <h3 class="text-2xl font-bold text-brand-dark-blue mb-6">Two Flexible Engagement Models</h3>
                     <div class="space-y-6 text-content-default">
-                        <div>
-                            <h4 class="text-xl font-medium text-brand-medium-blue mb-1">Committed Spend (Retained Search)</h4>
-                            <p>For critical, high-priority hires requiring dedicated resources and a comprehensive search strategy.</p>
+                        <div class="border-l-4 border-brand-medium-blue pl-4">
+                            <h4 class="text-xl font-medium text-brand-medium-blue mb-2">Retained Search</h4>
+                            <p>For critical, senior-level hires requiring dedicated resources and comprehensive search strategy. Guaranteed results with upfront commitment.</p>
                         </div>
-                        <div>
-                            <h4 class="text-xl font-medium text-brand-medium-blue mb-1">Contingency-Based Placement</h4>
-                            <p>Results-driven solutions for ongoing talent acquisition needs, where fees are payable upon successful placement.</p>
+                        <div class="border-l-4 border-brand-medium-blue pl-4">
+                            <h4 class="text-xl font-medium text-brand-medium-blue mb-2">Contingency Placement</h4>
+                            <p>Results-driven solution for ongoing talent needs. Pay only upon successful placement with our guaranteed candidate quality.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bg-brand-light-gray p-8 rounded-lg shadow-md hover-lift">
-                    <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">What Makes Us Different</h2>
-                    <p class="text-lg text-center text-content-default mb-6 max-w-xl mx-auto">Beyond just California focus, here's what sets TalentCaddy apart:</p>
-                    <ul class="space-y-3 text-content-default text-left">
-                        <li class="flex items-start"><span class="text-brand-medium-blue font-bold mr-2">✓</span><strong>Deep technical conversations</strong>&nbsp;that go beyond surface-level recruiting</li>
-                        <li class="flex items-start"><span class="text-brand-medium-blue font-bold mr-2">✓</span><strong>California market intelligence</strong>&nbsp;from active monitoring of projects and firms</li>
-                        <li class="flex items-start"><span class="text-brand-medium-blue font-bold mr-2">✓</span><strong>Quality over quantity</strong>&nbsp;approach to candidate screening</li>
-                        <li class="flex items-start"><span class="text-brand-medium-blue font-bold mr-2">✓</span><strong>Specialized focus</strong>&nbsp;on civil engineering rather than general recruiting</li>
-                        <li class="flex items-start"><span class="text-brand-medium-blue font-bold mr-2">✓</span><strong>Long-term relationships</strong>&nbsp;with both clients and candidates</li>
+                    <h3 class="text-2xl font-bold text-brand-dark-blue mb-6">The TalentCaddy Difference</h3>
+                    <ul class="space-y-4 text-content-default">
+                        <li class="flex items-start">
+                            <span class="text-brand-medium-blue font-bold mr-3 text-lg">✓</span>
+                            <div><strong>15+ years</strong> of California civil engineering relationships</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-medium-blue font-bold mr-3 text-lg">✓</span>
+                            <div><strong>Deep technical conversations</strong> that go beyond surface-level recruiting</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-medium-blue font-bold mr-3 text-lg">✓</span>
+                            <div><strong>Real-time market intelligence</strong> from AI-powered tracking systems</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-medium-blue font-bold mr-3 text-lg">✓</span>
+                            <div><strong>California regulatory expertise</strong> (CEQA, PE licensing, local codes)</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-medium-blue font-bold mr-3 text-lg">✓</span>
+                            <div><strong>Guaranteed 1:1 ratio</strong> - every candidate is interview-ready</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-medium-blue font-bold mr-3 text-lg">✓</span>
+                            <div><strong>21-day delivery</strong> vs. industry average of 90+ days</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -374,41 +556,181 @@
 
     <section id="talent-intelligence" class="py-16 md:py-24 bg-brand-dark-blue">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold heading-on-dark-bg mb-4">Talent Intelligence</h2>
+            <h2 class="text-3xl font-bold heading-on-dark-bg mb-4">Our Technology Advantage</h2>
             <p class="text-lg text-on-dark-bg mb-8 max-w-3xl mx-auto">
-                Our proprietary recruitment technology gives us a competitive edge:
+                Advanced recruitment technology combined with human expertise gives us an unmatched competitive edge in the California civil engineering market.
             </p>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-                <div class="text-center bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-lg">
-                    <h3 class="text-xl font-semibold heading-on-dark-bg mb-3">Comprehensive Market Mapping</h3>
-                    <p class="text-on-dark-bg">Real-time intelligence on California's civil engineering landscape - tracking company growth, project wins, team expansions, and talent movement patterns.</p>
+                <div class="text-center bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-lg hover-lift">
+                    <h3 class="text-xl font-semibold heading-on-dark-bg mb-3">Market Intelligence Platform</h3>
+                    <p class="text-on-dark-bg">Real-time tracking of California's civil engineering landscape—company growth, project wins, team expansions, and talent movement patterns.</p>
                 </div>
-                <div class="text-center bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-lg">
-                    <h3 class="text-xl font-semibold heading-on-dark-bg mb-3">Predictive Candidate Identification</h3>
-                    <p class="text-on-dark-bg">Advanced algorithms identify engineers likely to be open to new opportunities based on project completion cycles, career progression patterns, and market indicators.</p>
+                <div class="text-center bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-lg hover-lift">
+                    <h3 class="text-xl font-semibold heading-on-dark-bg mb-3">Predictive Analytics</h3>
+                    <p class="text-on-dark-bg">AI algorithms identify engineers likely to consider new opportunities based on project cycles, career progression, and market indicators.</p>
                 </div>
-                <div class="text-center bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-lg">
-                    <h3 class="text-xl font-semibold heading-on-dark-bg mb-3">Skills & Experience Matching</h3>
-                    <p class="text-on-dark-bg">Sophisticated matching technology analyzes technical competencies, project experience, software proficiencies, and cultural fit indicators to identify your ideal candidates.</p>
+                <div class="text-center bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-lg hover-lift">
+                    <h3 class="text-xl font-semibold heading-on-dark-bg mb-3">Skills Matching Engine</h3>
+                    <p class="text-on-dark-bg">Advanced matching technology analyzes technical competencies, project experience, software proficiencies, and cultural fit indicators.</p>
                 </div>
-                <div class="text-center bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-lg">
-                    <h3 class="text-xl font-semibold heading-on-dark-bg mb-3">Relationship Intelligence</h3>
-                    <p class="text-on-dark-bg">Our system tracks interaction history and relationship strength with thousands of California engineers, enabling more effective and personalized outreach.</p>
+                <div class="text-center bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-lg hover-lift">
+                    <h3 class="text-xl font-semibold heading-on-dark-bg mb-3">Relationship Database</h3>
+                    <p class="text-on-dark-bg">15+ years of interaction history with thousands of California engineers, enabling personalized and effective outreach strategies.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="commitment" class="py-16 md:py-24 bg-brand-beige">
+    <section id="contact" class="py-16 md:py-24 bg-brand-beige">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-brand-dark-blue mb-4">Our Commitment</h2>
-            <p class="text-lg text-center text-brand-dark-blue font-semibold mb-2">Consultants First, Recruiters Second</p>
-            <p class="text-lg text-center text-content-default mb-12 max-w-3xl mx-auto">We believe in building true partnerships:</p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Thorough Needs Assessment</h3>
-                    <p class="text-content-default">We invest significant time upfront to understand your specific technical requirements, project demands, team dynamics, and company culture.</p>
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-brand-dark-blue mb-4">Ready to Fill Your Next Role in 21 Days?</h2>
+                <p class="text-lg text-center text-content-default mb-12 max-w-2xl mx-auto">Stop wasting time with unqualified candidates from generic recruiters. Partner with California's civil engineering recruitment specialists.</p>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-brand-dark-blue mb-6">Get Started Today</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <span class="text-brand-medium-blue mr-3 text-xl">📞</span>
+                                <div>
+                                    <div class="font-semibold text-brand-dark-blue">Call us directly:</div>
+                                    <div class="text-content-default">(555) 123-4567</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-brand-medium-blue mr-3 text-xl">✉️</span>
+                                <div>
+                                    <div class="font-semibold text-brand-dark-blue">Email us:</div>
+                                    <div class="text-content-default">info@talentcaddy.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-brand-medium-blue mr-3 text-xl">🌐</span>
+                                <div>
+                                    <div class="font-semibold text-brand-dark-blue">Visit our website:</div>
+                                    <div class="text-content-default">www.talentcaddy.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                            <div class="font-semibold text-green-800 mb-2">Free Consultation Includes:</div>
+                            <ul class="text-sm text-green-700 space-y-1">
+                                <li>• Market analysis for your specific roles</li>
+                                <li>• Compensation benchmarking</li>
+                                <li>• Timeline and strategy discussion</li>
+                                <li>• No obligation, 30-minute call</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="lead-magnet p-8 text-center">
+                        <h3 class="text-2xl font-bold text-white mb-4">Download Our Free Guide</h3>
+                        <p class="text-white mb-6">"The California Engineering Manager's Guide to Hiring Top Civil Engineers in 2024"</p>
+                        <div class="space-y-4">
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white text-sm">
+                                <div class="font-semibold mb-2">What's Inside:</div>
+                                <ul class="text-left space-y-1">
+                                    <li>• Current salary ranges by specialization</li>
+                                    <li>• Top interview questions for civil engineers</li>
+                                    <li>• Red flags to avoid when hiring</li>
+                                    <li>• Retention strategies that work</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="inline-block bg-white text-brand-medium-blue font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition-all">Download Free Guide</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-3">Focus on Long-Term Placements</h3>
-                    <p class="text-content-default">Our aim is to facilitate placements that lead to lasting careers for candidates and sustained success for your
+                
+                <div class="text-center mt-12">
+                    <div class="bg-white p-8 rounded-lg shadow-lg inline-block">
+                        <h4 class="text-xl font-bold text-brand-dark-blue mb-4">Our Guarantee to You</h4>
+                        <p class="text-content-default max-w-2xl">Every candidate we present will be qualified, interested, and interview-ready. If we don't deliver at least 2 qualified candidates within 21 days, we'll continue the search at no additional cost until we do.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark-blue py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">TalentCaddy</h3>
+                    <p class="text-on-dark-bg">California's premier civil engineering recruitment specialists, serving firms across the state since 2008.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="#services" class="block text-on-dark-bg hover:text-white transition-colors">Our Expertise</a>
+                        <a href="#results" class="block text-on-dark-bg hover:text-white transition-colors">Track Record</a>
+                        <a href="#process" class="block text-on-dark-bg hover:text-white transition-colors">Our Process</a>
+                        <a href="#contact" class="block text-on-dark-bg hover:text-white transition-colors">Contact Us</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Contact Info</h3>
+                    <div class="space-y-2 text-on-dark-bg">
+                        <div>(555) 123-4567</div>
+                        <div>info@talentcaddy.com</div>
+                        <div>California Statewide</div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-on-dark-bg">
+                <p>&copy; 2024 TalentCaddy. All rights reserved. | California's Civil Engineering Recruitment Specialists</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Add active class to navigation links based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
